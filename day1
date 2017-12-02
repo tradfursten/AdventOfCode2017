@@ -3,7 +3,7 @@ const a = "428122498997587283996116951397957933569136949848379417125362532269869
 
 step1
 reg = /(\d)(?=\1)/g
-add last 9
+add last 9 since input should wrap
 
 https://regexr.com/3hdsn
 
