@@ -9,10 +9,6 @@ fs.readFile(process.argv[2], 'utf8', function (err,data) {
 
   const removeAllButGroups = removeGarbadge.replace(/[^{}]/g,"")
 
-  console.log(data)
-  console.log(removeEscaped)
-  console.log(removeGarbadge)
-  console.log(removeAllButGroups)
   const levels = {}
   let currentLevel = 0
   removeAllButGroups.split("").forEach(it => {
@@ -36,5 +32,15 @@ fs.readFile(process.argv[2], 'utf8', function (err,data) {
     console.log(`Key: ${key} * ${levels[key]}`)
   })
   console.log(sum)
+
+  const ptrn = /<(.*?)>/g //.exec(removeEscaped)
+  var match;
+  let garbadgeSum = 0;
+  while ((match = ptrn.exec(removeEscaped)) != null) {
+    garbadgeSum += match[1].length
+  }
+
+  console.log(garbadgeSum)
+
 });
 
